@@ -1,2 +1,3 @@
-The final program is BorderControl.exe
-Sorry abt the poor final managing structure T_T this was coded from thursday night to friday morning T_T
+Simple Border Control Game made in godot.
+Try to get the highest score possible.
+The final game file is BorderControl.exe
