@@ -1,0 +1,331 @@
+[gd_scene load_steps=27 format=3 uid="uid://d36b1i2iuwfta"]
+
+[ext_resource type="Texture2D" uid="uid://b2nmro8qyhdy" path="res://spritesheet.png" id="1_77q5r"]
+[ext_resource type="Script" path="res://Crosser.gd" id="1_vg4cg"]
+[ext_resource type="Script" path="res://CrosserAnim.gd" id="2_bbp7s"]
+[ext_resource type="Texture2D" uid="uid://bw0uid6qn4s0m" path="res://Plant.png" id="4_vx37w"]
+[ext_resource type="Script" path="res://Info1.gd" id="5_dl5v4"]
+[ext_resource type="Texture2D" uid="uid://b2ujfm1dh88a2" path="res://msgBox.webp" id="5_rwryu"]
+[ext_resource type="Script" path="res://Info2.gd" id="6_deeno"]
+[ext_resource type="Script" path="res://CloseAnswer.gd" id="6_fvrr0"]
+[ext_resource type="Script" path="res://Info3.gd" id="7_2bge8"]
+[ext_resource type="Script" path="res://Info4.gd" id="8_ql8xv"]
+[ext_resource type="Script" path="res://Info5.gd" id="9_axr7u"]
+[ext_resource type="Script" path="res://Answering.gd" id="11_22m51"]
+
+[sub_resource type="Animation" id="Animation_2k63c"]
+resource_name = "Person Moving"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 5, 7, 9, 6, 4, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_psc42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4l1fk"]
+_data = {
+"Person Moving": SubResource("Animation_2k63c"),
+"RESET": SubResource("Animation_psc42")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16jt5"]
+size = Vector2(301, 475.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p141v"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_iqjsy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t8jp8"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxdmu"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdpwg"]
+bg_color = Color(0, 0.698039, 0.0156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njud2"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq3cx"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dleyh"]
+bg_color = Color(0.705882, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw27h"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwceh"]
+font_size = 40
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+offset_right = 1500.0
+offset_bottom = 1000.0
+split_offset = 600
+dragger_visibility = 2
+
+[node name="HSplitContainer" type="HBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VSplitContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VSplitContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="VSplitContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VSplitContainer"]
+layout_mode = 2
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_vg4cg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4l1fk")
+}
+speed_scale = 0.5
+script = ExtResource("2_bbp7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(373, 123)
+scale = Vector2(0.932668, 1)
+texture = ExtResource("1_77q5r")
+centered = false
+hframes = 10
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(746.5, 359.75)
+shape = SubResource("RectangleShape2D_16jt5")
+
+[node name="ID" type="Panel" parent="."]
+offset_left = 495.0
+offset_top = 646.0
+offset_right = 995.0
+offset_bottom = 926.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p141v")
+
+[node name="MarginContainer" type="MarginContainer" parent="ID"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 280.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ID/MarginContainer"]
+layout_mode = 2
+split_offset = -200
+
+[node name="TextureRect" type="TextureRect" parent="ID/MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("4_vx37w")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ID/MarginContainer/HSplitContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button1" type="Button" parent="ID/MarginContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_iqjsy")
+text = "Age:"
+alignment = 0
+script = ExtResource("5_dl5v4")
+metadata/data = 0
+
+[node name="Button2" type="Button" parent="ID/MarginContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Nationality:"
+alignment = 0
+script = ExtResource("6_deeno")
+metadata/data = 0
+
+[node name="Button3" type="Button" parent="ID/MarginContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Purpose:"
+alignment = 0
+script = ExtResource("7_2bge8")
+metadata/data = 0
+
+[node name="Button4" type="Button" parent="ID/MarginContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Declarations:"
+alignment = 0
+script = ExtResource("8_ql8xv")
+metadata/data = 0
+
+[node name="Button5" type="Button" parent="ID/MarginContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Vehicle:"
+alignment = 0
+script = ExtResource("9_axr7u")
+metadata/data = 0
+
+[node name="Answer" type="TextureRect" parent="."]
+offset_left = 909.0
+offset_top = 47.0
+offset_right = 1375.0
+offset_bottom = 278.0
+texture = ExtResource("5_rwryu")
+script = ExtResource("11_22m51")
+
+[node name="Label" type="Label" parent="Answer"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 60.0
+offset_right = 421.0
+offset_bottom = 151.0
+label_settings = SubResource("LabelSettings_t8jp8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Answer"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 23.0
+offset_right = 428.0
+offset_bottom = 54.0
+text = "X"
+script = ExtResource("6_fvrr0")
+
+[node name="Pass" type="Button" parent="."]
+offset_left = 102.0
+offset_top = 687.0
+offset_right = 310.0
+offset_bottom = 864.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_pxdmu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rdpwg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_njud2")
+text = "Good 
+To Go"
+
+[node name="Fail" type="Button" parent="."]
+offset_left = 1145.0
+offset_top = 693.0
+offset_right = 1353.0
+offset_bottom = 870.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_eq3cx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dleyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qw27h")
+text = "Bar
+Entry"
+
+[node name="Score" type="Label" parent="."]
+offset_right = 197.0
+offset_bottom = 41.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_dwceh")
+metadata/score = 0
+
+[node name="Lives" type="TabBar" parent="."]
+offset_left = 5.0
+offset_top = 51.0
+offset_right = 165.0
+offset_bottom = 91.0
+tab_count = 4
+tab_0/title = "Lives:"
+tab_0/disabled = true
+tab_1/title = "X"
+tab_1/disabled = true
+tab_2/title = "X"
+tab_2/disabled = true
+tab_3/title = "X"
+tab_3/disabled = true
+metadata/lives = 0
+
+[connection signal="pressed" from="ID/MarginContainer/HSplitContainer/VBoxContainer/Button1" to="Answer" method="_on_button_1_pressed"]
+[connection signal="pressed" from="ID/MarginContainer/HSplitContainer/VBoxContainer/Button2" to="Answer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="ID/MarginContainer/HSplitContainer/VBoxContainer/Button3" to="Answer" method="_on_button_3_pressed"]
+[connection signal="pressed" from="ID/MarginContainer/HSplitContainer/VBoxContainer/Button4" to="Answer" method="_on_button_4_pressed"]
+[connection signal="pressed" from="ID/MarginContainer/HSplitContainer/VBoxContainer/Button5" to="Answer" method="_on_button_5_pressed"]
+[connection signal="pressed" from="Pass" to="Answer" method="_on_pass_pressed"]
+[connection signal="pressed" from="Fail" to="Answer" method="_on_fail_pressed"]
